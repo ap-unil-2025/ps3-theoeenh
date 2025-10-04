@@ -48,7 +48,10 @@ def count_lines(filename):
     Returns:
         int: Total number of lines
     """
-    # TODO: Open file and count lines
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+        return len(lines)
+
     pass
 
 
