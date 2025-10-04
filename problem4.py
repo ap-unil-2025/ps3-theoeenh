@@ -32,7 +32,7 @@ def count_words(filename):
     """
     with open(filename, 'r') as f:
         text = f.read()
-        words = text.split()  # Séparer par espaces et nouvelles lignes
+        words = text.split()  
         return len(words)
 
     pass
@@ -69,7 +69,7 @@ def count_characters(filename, include_spaces=True):
     with open(filename, 'r') as f:
         text = f.read()
         if not include_spaces:
-            text = text.replace(' ', '')  # Supprimer les espaces
+            text = text.replace(' ', '')  
         return len(text)
     pass
 
@@ -87,12 +87,11 @@ def find_longest_word(filename):
     import string
     with open(filename, 'r') as f:
         text = f.read()
-        # Supprimer la ponctuation
         for p in string.punctuation:
             text = text.replace(p, '')
         words = text.split()
         if words:
-            return max(words, key=len)  # Retourne le mot le plus long
+            return max(words, key=len)  
         return ""
     pass
 
@@ -112,11 +111,21 @@ def word_frequency(filename):
 
     frequency = {}
 
-    # TODO: Open file
-    # TODO: Read all words
-    # TODO: Convert to lowercase
-    # TODO: Remove punctuation (use string.punctuation)
-    # TODO: Count frequency of each word
+    with open(filename, 'r') as f:
+        text = f.read()
+        
+        text = text.lower()
+        
+        for p in string.punctuation:
+            text = text.replace(p, '')
+        words = text.split()
+
+        
+        for word in words:
+            if word in frequency:
+                frequency[word] += 1
+            else:
+                frequency[word] = 1
 
     return frequency
 
