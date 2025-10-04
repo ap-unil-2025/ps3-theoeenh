@@ -14,13 +14,13 @@ def get_numbers_from_user():
     numbers = []
 
     while True:
-        user_input = input("Enter a number (or 'done' to finish): ")  # Get input from user
-        if user_input.lower() == 'done':  # Check if user typed 'done'
+        user_input = input("Enter a number (or 'done' to finish): ")  
+        if user_input.lower() == 'done':  
             break
         try:
-            number = float(user_input)  # Try to convert to float
-            numbers.append(number)       # Add to list
-        except ValueError:               # Handle invalid input gracefully
+            number = float(user_input)  
+            numbers.append(number)      
+        except ValueError:              
             print("Invalid input. Please enter a number or 'done'.")
 
     return numbers
@@ -46,7 +46,13 @@ def analyze_numbers(numbers):
     if not numbers:
         return None
 
-    analysis = {}
+    analysis['count'] = len(numbers)        # Calculate count
+    analysis['sum'] = sum(numbers)          # Calculate sum
+    analysis['average'] = sum(numbers) / len(numbers)  # Calculate average
+    analysis['minimum'] = min(numbers)      # Find minimum
+    analysis['maximum'] = max(numbers)      # Find maximum
+    analysis['even_count'] = sum(1 for n in numbers if n % 2 == 0)  # Count even numbers
+    analysis['odd_count'] = sum(1 for n in numbers if n % 2 != 0)
 
     # TODO: Calculate count
     # TODO: Calculate sum
