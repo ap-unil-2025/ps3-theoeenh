@@ -45,9 +45,9 @@ def analyze_numbers(numbers):
     """
     if not numbers:
         return None
-
-    analysis['count'] = len(numbers)        # Calculate count
-    analysis['sum'] = sum(numbers)          # Calculate sum
+    analysis = {}2   
+    analysis['count'] = len(numbers)        
+    analysis['sum'] = sum(numbers)          
     analysis['average'] = sum(numbers) / len(numbers)  # Calculate average
     analysis['minimum'] = min(numbers)      # Find minimum
     analysis['maximum'] = max(numbers)      # Find maximum
