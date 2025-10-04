@@ -51,7 +51,26 @@ def temperature_converter():
     # - Validate input
     # - Perform conversion
     # - Display result rounded to 2 decimal places
-    
+    print("Temperature Converter")
+    print("-" * 30)
+
+    temp_str = input("Enter the temperature value: ")
+
+    try:
+        temperature = float(temp_str)
+    except ValueError:
+        print("Invalid number. Please enter a numeric value.")
+        return
+    unit = input("Is this in Celsius or Fahrenheit? (C/F): ").strip().upper()
+
+    if unit == "C":
+        result = celsius_to_fahrenheit(temperature)
+        print(f"{temperature}°C is {round(result, 2)}°F")
+    elif unit == "F":
+        result = fahrenheit_to_celsius(temperature)
+        print(f"{temperature}°F is {round(result, 2)}°C")
+    else:
+        print("Invalid unit. Please enter C or F.")
      
 
 
