@@ -84,8 +84,16 @@ def find_longest_word(filename):
     Returns:
         str: The longest word found
     """
-    # TODO: Find the longest word
-    # Hint: You might need to remove punctuation
+    import string
+    with open(filename, 'r') as f:
+        text = f.read()
+        # Supprimer la ponctuation
+        for p in string.punctuation:
+            text = text.replace(p, '')
+        words = text.split()
+        if words:
+            return max(words, key=len)  # Retourne le mot le plus long
+        return ""
     pass
 
 
